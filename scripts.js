@@ -49,7 +49,7 @@ function guid_to_base64(g,le) {
 
 function createShortGuid(guid) {
     var encoded = guid_to_base64(guid);
-    encoded = encoded.replace(///g, '_')
+    encoded = encoded.replace(/\//g, '_')
                 .replace(/+/g, '-');
     return encoded.substring(0, 22);
 }
