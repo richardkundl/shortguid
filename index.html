@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 	    <meta name="viewport" content="width=device-width, initial-scale=1">
-	    <title>Guid/UUID and short guid generator</title>
+	    <title>GUID/UUID and short GUID generator</title>
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
         
@@ -18,8 +18,38 @@
 	    <![endif]-->
 	</head>
 	<body>
-		<h1>Hello World</h1>
-		<p>I'm hosted with GitHub Pages.</p>
+	    <div class="container">
+	      <div class="page-header">
+	        <h1>GUID/UUID and short guid generator</h1>
+	      </div>
+	      <p class="lead">Generate GUID/UUID</p>
+	      <div class="row">
+	     		<input type="button" id="gen-guid" class="btn btn-default" value="Generate GUID" />
+	     		<input type="button" id="gen-shortguid" class="btn btn-default" value="Generate short GUID" />
+	      </div>
+	      <div class="row">
+	      	<label id="gen-value"></label>
+	      </div>
+	      
+	      <p class="lead">Transform GUID/UUID to short GUID and reverse it.</p>
+	      <div class="row">
+	      	<input type="text" value="" id="map-from" />
+	     	</div>
+	      <div class="row">
+	     		<input type="button" id="map-guid" class="btn btn-default" value="Transform to GUID" />
+	     		<input type="button" id="map-shortguid" class="btn btn-default" value="Transform to short GUID" />
+	      </div>
+	      <div class="row">
+	      	<label id="map-value"></label>
+	      </div>
+
+	    </div>
+	
+	    <footer class="footer">
+	      <div class="container">
+	        <p class="text-muted">2015 - Richard Kundl</p>
+	      </div>
+	    </footer>
 		
 		
 		<script>
@@ -30,7 +60,6 @@
 		
 		  ga('create', 'UA-59456232-1', 'auto');
 		  ga('send', 'pageview');
-		
 		</script>
 	</body>
 </html>
