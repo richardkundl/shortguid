@@ -22,36 +22,33 @@
 	      <div class="page-header">
 	        <h1>GUID/UUID and short guid generator</h1>
 	      </div>
-	      <p class="lead">Generate GUID/UUID</p>
-	      <div class="row">
-	     		<input type="button" id="gen-guid" class="btn btn-default" value="Generate GUID" />
-	     		<input type="button" id="gen-shortguid" class="btn btn-default" value="Generate short GUID" />
-	      </div>
-	      <div class="row">
-	      	<label id="gen-value"></label>
+	      <div></div>
+	      <div class="well">
+		      <p class="lead">Generate GUID/UUID</p>
+		      <div class="row">
+				<input type="button" id="gen-guid" class="btn btn-default" value="Generate GUID" />
+				<input type="button" id="gen-shortguid" class="btn btn-default" value="Generate short GUID" />
+		      </div>
+		      <div class="row">
+		      	<label id="gen-value"></label>
+		      </div>
 	      </div>
 	      
-	      <p class="lead">Transform GUID/UUID to short GUID and reverse it.</p>
-	      <div class="row">
-	      	<input type="text" value="" id="map-from" />
-	     	</div>
-	      <div class="row">
+	      <div class="well">
+		      <p class="lead">Transform GUID/UUID to short GUID and reverse it.</p>
+		      <div class="row">
+		      	<input type="text" id="map-from" class="form-control" placeholder="3D0C5617-19E6-471E-B09D-0722FB41D371" />
+		     	</div>
+		      <div class="row">
 	     		<input type="button" id="map-guid" class="btn btn-default" value="Transform to GUID" />
 	     		<input type="button" id="map-shortguid" class="btn btn-default" value="Transform to short GUID" />
-	      </div>
-	      <div class="row">
-	      	<label id="map-value"></label>
-	      </div>
-
+		      </div>
+		      <div class="row">
+		      	<label id="map-value"></label>
+		      </div>
+		  </div>
 	    </div>
 	
-	    <footer class="footer">
-	      <div class="container">
-	        <p class="text-muted">2015 - Richard Kundl</p>
-	      </div>
-	    </footer>
-		
-		
 		<script>
 		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
