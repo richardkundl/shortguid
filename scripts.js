@@ -44,12 +44,12 @@ function guid_to_base64(g,le) {
   r += '==';
 
   return r;
-} // guid_to_base64()    
+}; 
 
 function base64_to_guid(g,le) {
     return g;
     
-}
+};
 
 function createShortGuid(guid) {
     var encoded = guid_to_base64(guid, true);
@@ -64,4 +64,42 @@ function createGuid(shortGuid){
     encoded = encoded + "==";
     var decoded = base64_to_guid(encoded, true);
     return decoded;
-}
+};
+
+var btnGenerateGuid;
+var btnGenerateShortGuid;
+var lblGeneratedValue;
+var btnMapToGuid;
+var btnMapToShortGuid;
+var lblMappedValue;
+var txtMapValue;
+
+(function() {
+	// binding controls
+	btnGenerateGuid = document.getElementById('gen-guid');
+	btnGenerateShortGuid = document.getElementById('gen-shortguid');
+	lblGeneratedValue = document.getElementById('gen-value');
+	btnMapToGuid = document.getElementById('map-guid');
+	btnMapToShortGuid = document.getElementById('map-shortguid');
+	lblMappedValue = document.getElementById('map-value');
+	txtMapValue = document.getElementById('map-from');
+	
+	// binding events
+	btnGenerateGuid.addEventListener("click", function(){
+			lblGeneratedValue.value = generateUUID();
+		});
+	
+	btnGenerateShortGuid.addEventListener("click", function(){
+			lblGeneratedValue.value = createShortGuid(generateUUID());
+		});
+	
+	btnMapToGuid.addEventListener("click", function(){
+			alert('Not implemented exeption!');
+			return;
+			lblMappedValue.value = createGuid(txtMapValue.value);
+		});
+					
+	btnMapToShortGuid.addEventListener("click", function(){
+			lblMappedValue.value = createShortGuid(txtMapValue.value);
+		});
+})();
