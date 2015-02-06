@@ -86,20 +86,20 @@ var txtMapValue;
 	
 	// binding events
 	btnGenerateGuid.addEventListener("click", function(){
-			lblGeneratedValue.value = generateUUID();
+			lblGeneratedValue.innerHTML  = generateUUID();
 		});
 	
 	btnGenerateShortGuid.addEventListener("click", function(){
-			lblGeneratedValue.value = createShortGuid(generateUUID());
+			lblGeneratedValue.innerHTML  = createShortGuid(generateUUID());
 		});
 	
 	btnMapToGuid.addEventListener("click", function(){
 			alert('Not implemented exeption!');
 			return;
-			lblMappedValue.value = createGuid(txtMapValue.value);
+			lblMappedValue.innerHTML  = createGuid(txtMapValue.value);
 		});
 					
 	btnMapToShortGuid.addEventListener("click", function(){
-			lblMappedValue.value = createShortGuid(txtMapValue.value);
+			lblMappedValue.innerHTML  = createShortGuid(txtMapValue.value);
 		});
 })();
