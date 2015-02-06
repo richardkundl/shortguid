@@ -45,11 +45,23 @@ function guid_to_base64(g,le) {
 
   return r;
 } // guid_to_base64()    
+
+function base64_to_guid(g,le) {
+    return g;
     
+}
 
 function createShortGuid(guid) {
-    var encoded = guid_to_base64(guid);
+    var encoded = guid_to_base64(guid, true);
     encoded = encoded.replace(/\//g, '_')
                 .replace(/\+/g, '-');
     return encoded.substring(0, 22);
+}
+
+function createGuid(shortGuid){
+    var encoded = shortGuid.replace(/\_/g, '/')
+                .replace(/\-/g, '+');
+    encoded = encoded + "==";
+    var decoded = base64_to_guid(encoded, true);
+    return decoded;
 }
