@@ -44,9 +44,34 @@ function guid_to_base64(g,le) {
   return r;
 }; 
 
-function base64_to_guid(g,le) {
-    return g;
-    
+function base64_to_guid(base64,le) {
+    var hex = "";
+    for (var i = 0; i < 24; ) {
+        var e1 = b64list.indexOf(base64[i++]);
+        var e2 = b64list.indexOf(base64[i++]);
+        var e3 = b64list.indexOf(base64[i++]);
+        var e4 = b64list.indexOf(base64[i++]);
+        var c1 = (e1 << 2) | (e2 >> 4);
+        var c2 = ((e2 & 15) << 4) | (e3 >> 2);
+        var c3 = ((e3 & 3) << 6) | e4;
+        hex += hexlist[c1 >> 4];
+        hex += hexlist[c1 & 15];
+        if (e3 != 64) {
+            hex += hexlist[c2 >> 4];
+            hex += hexlist[c2 & 15];
+        }
+        if (e4 != 64) {
+            hex += hexlist[c3 >> 4];
+            hex += hexlist[c3 & 15];
+        }
+    }
+	var a = hex.substr(6, 2) + hex.substr(4, 2) + hex.substr(2, 2) + hex.substr(0, 2);
+    var b = hex.substr(10, 2) + hex.substr(8, 2);
+    var c = hex.substr(14, 2) + hex.substr(12, 2);
+    var d = hex.substr(16, 16);
+    hex = a + b + c + d;
+    var uuid = hex.substr(0, 8) + '-' + hex.substr(8, 4) + '-' + hex.substr(12, 4) + '-' + hex.substr(16, 4) + '-' + hex.substr(20, 12);
+    return uuid;
 };
 
 function createShortGuid(guid) {
@@ -93,8 +118,6 @@ var txtMapValue;
 		});
 	
 	btnMapToGuid.addEventListener("click", function(){
-			alert('Not implemented exeption!');
-			return;
 			lblMappedValue.innerHTML  = createGuid(txtMapValue.value);
 		});
 					
