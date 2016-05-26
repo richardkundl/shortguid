@@ -21,14 +21,11 @@ var b64list = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/'
 function guid_to_base64(g,le) {
   var s = g.replace(/[^0-9a-f]/ig,'').toLowerCase();
   if (s.length != 32) return '';
-  console.log(s);
   if (le) s = s.slice(6,8) + s.slice(4,6) + s.slice(2,4) + s.slice(0,2) +
         s.slice(10,12) + s.slice(8,10) +
         s.slice(14,16) + s.slice(12,14) +
         s.slice(16);
   s += '0';
-  console.log(le);
-  console.log(s);
 
   var a, p, q;
   var r = '';
@@ -37,12 +34,9 @@ function guid_to_base64(g,le) {
    a =  (hexlist.indexOf(s.charAt(i++)) << 8) |
         (hexlist.indexOf(s.charAt(i++)) << 4) |
         (hexlist.indexOf(s.charAt(i++)));
-	console.log(a);
+
    p = a >> 6;
    q = a & 63;
-console.log(p);
-console.log(q);
-console.log('----------');
    r += b64list.charAt(p) + b64list.charAt(q);
   }
   r += '==';
@@ -67,6 +61,7 @@ function createGuid(shortGuid){
                 .replace(/\-/g, '+');
     encoded = encoded + "==";
     var decoded = base64_to_guid(encoded, true);
+	console.log(decoded);
     return decoded;
 };
 
